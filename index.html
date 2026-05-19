@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apricus Co Ltd — Corporate Website Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:       #1B3A6B;
+    --blue-mid:   #2B5EA7;
+    --blue-light: #D8E8F8;
+    --blue-pale:  #F0F6FF;
+    --gold:       #C59A3C;
+    --gold-light: #F5EAD0;
+    --white:      #FFFFFF;
+    --off-white:  #F7F9FC;
+    --text:       #1A1F2E;
+    --text-mid:   #445070;
+    --text-light: #8898AA;
+    --border:     #DDE5F0;
+    --ff-head:    'Playfair Display', Georgia, serif;
+    --ff-body:    'Source Sans 3', system-ui, sans-serif;
+    --shadow-sm:  0 2px 8px rgba(27,58,107,.08);
+    --shadow-md:  0 6px 24px rgba(27,58,107,.13);
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family: var(--ff-body); color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+  .wf-banner {
+    background: var(--gold);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+  }
+
+  nav {
+    position: sticky;
+    top: 38px;
+    z-index: 1000;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark {
+    width: 38px; height: 38px;
+    background: var(--blue);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-family: var(--ff-head);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+  }
+  .logo-text { font-family: var(--ff-head); font-size: 20px; font-weight: 700; color: var(--blue); letter-spacing: -.01em; }
+  .logo-sub { font-family: var(--ff-body); font-size: 10px; color: var(--text-light); letter-spacing: .12em; text-transform: uppercase; display: block; margin-top: -2px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: var(--ff-body); font-size: 14px; font-weight: 500; color: var(--text-mid); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta { background: var(--blue); color: var(--white) !important; padding: 9px 22px; border-radius: 5px; font-weight: 600 !important; font-size: 13px !important; letter-spacing: .04em !important; transition: background .2s !important; }
+  .nav-cta:hover { background: var(--blue-mid) !important; }
+
+  #home { background: var(--blue); position: relative; overflow: hidden; padding: 110px 32px 130px; }
+  .hero-glow { position: absolute; right: -120px; top: -120px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(43,94,167,.55) 0%, transparent 70%); pointer-events: none; }
+  .hero-content { max-width: 1160px; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #A8C8F0; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 22px; }
+  .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  .hero-h1 { font-family: var(--ff-head); font-size: 46px; font-weight: 700; color: var(--white); line-height: 1.18; letter-spacing: -.02em; margin-bottom: 22px; }
+  .hero-h1 em { color: #A8C8F0; font-style: normal; }
+  .hero-p { font-size: 16px; color: rgba(255,255,255,.75); line-height: 1.7; max-width: 480px; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--white); padding: 13px 30px; border-radius: 5px; font-size: 14px; font-weight: 600; letter-spacing: .04em; text-decoration: none; transition: background .2s, transform .15s; display: inline-block; }
+  .btn-primary:hover { background: #A8832E; transform: translateY(-1px); }
+  .btn-outline { border: 1.5px solid rgba(255,255,255,.4); color: var(--white); padding: 13px 30px; border-radius: 5px; font-size: 14px; font-weight: 500; letter-spacing: .04em; text-decoration: none; transition: border-color .2s, background .2s; display: inline-block; }
+  .btn-outline:hover { border-color: rgba(255,255,255,.8); background: rgba(255,255,255,.07); }
+  .hero-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 36px; backdrop-filter: blur(8px); }
+  .hero-card-title { font-family: var(--ff-head); font-size: 15px; color: rgba(255,255,255,.6); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 24px; }
+  .cred-item { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .cred-item:last-child { border-bottom: none; }
+  .cred-icon { width: 36px; height: 36px; background: rgba(197,154,60,.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .cred-label { font-size: 11px; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .08em; }
+  .cred-value { font-size: 14px; color: var(--white); font-weight: 600; margin-top: 2px; }
+
+  .trust-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 32px; }
+  .trust-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-mid); font-weight: 500; }
+  .trust-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .trust-item strong { color: var(--blue); }
+
+  section { padding: 90px 32px; }
+  .section-inner { max-width: 1160px; margin: 0 auto; }
+  .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .section-h2 { font-family: var(--ff-head); font-size: 36px; font-weight: 700; color: var(--blue); line-height: 1.2; letter-spacing: -.02em; margin-bottom: 16px; }
+  .section-lead { font-size: 16px; color: var(--text-mid); line-height: 1.7; max-width: 580px; }
+  .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 20px; }
+
+  #about { background: var(--off-white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img { background: var(--blue-light); border-radius: 10px; height: 380px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; border: 1px solid var(--border); position: relative; overflow: hidden; }
+  .about-img::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(27,58,107,.04) 20px, rgba(27,58,107,.04) 21px); }
+  .about-img-label { font-size: 13px; color: var(--text-light); font-style: italic; position: relative; z-index: 1; }
+  .about-img-icon { font-size: 48px; position: relative; z-index: 1; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+  .stat-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; border-left: 3px solid var(--blue); }
+  .stat-num { font-family: var(--ff-head); font-size: 28px; font-weight: 700; color: var(--blue); margin-bottom: 4px; }
+  .stat-label { font-size: 13px; color: var(--text-mid); }
+  .value-list { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+  .value-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--text-mid); line-height: 1.5; }
+  .check { width: 22px; height: 22px; background: var(--blue); border-radius: 50%; color: white; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+  #products { background: var(--white); }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .product-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 32px 28px; transition: box-shadow .2s, transform .2s; position: relative; overflow: hidden; }
+  .product-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--blue); transform: scaleX(0); transition: transform .25s; transform-origin: left; }
+  .product-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .product-card:hover::after { transform: scaleX(1); }
+  .product-icon { font-size: 36px; margin-bottom: 18px; display: block; }
+  .product-name { font-family: var(--ff-head); font-size: 18px; font-weight: 600; color: var(--blue); margin-bottom: 10px; }
+  .product-desc { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+  .product-tag { display: inline-block; margin-top: 16px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--blue-mid); background: var(--blue-pale); padding: 4px 10px; border-radius: 3px; }
+
+  #credentials { background: var(--off-white); }
+  .creds-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: start; margin-top: 48px; }
+  .creds-panel { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .creds-header { background: var(--blue); padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .creds-header-title { font-family: var(--ff-head); font-size: 16px; color: var(--white); font-weight: 600; }
+  .verified-badge { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 4px; padding: 5px 12px; font-size: 11px; font-weight: 700; color: #A8D8A0; letter-spacing: .06em; text-transform: uppercase; }
+  .creds-body { padding: 0 28px; }
+  .cred-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--border); gap: 20px; }
+  .cred-row:last-child { border-bottom: none; }
+  .cred-key { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-light); }
+  .cred-val { font-size: 14px; font-weight: 600; color: var(--text); text-align: right; }
+  .cred-val small { display: block; font-size: 11px; font-weight: 400; color: var(--text-light); margin-top: 2px; }
+  .cred-ok { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; color: #2E7D32; background: #E8F5E9; border: 1px solid #C8E6C9; border-radius: 3px; padding: 3px 9px; text-transform: uppercase; letter-spacing: .05em; }
+  .why-verify { display: flex; flex-direction: column; gap: 20px; }
+  .why-item { display: flex; gap: 16px; align-items: flex-start; }
+  .why-num { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: var(--white); font-family: var(--ff-head); font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .why-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .why-text { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+
+  .partners { background: var(--blue-pale); padding: 36px 32px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .partners-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; gap: 48px; }
+  .partners-label { font-size: 11px; font-weight: 700; color: var(--text-light); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+  .partners-list { display: flex; gap: 36px; flex-wrap: wrap; align-items: center; }
+  .partner-pill { background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 8px 20px; font-size: 13px; font-weight: 600; color: var(--text-mid); }
+
+  #contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; }
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+  .contact-card { display: flex; gap: 16px; background: var(--off-white); border: 1px solid var(--border); border-radius: 8px; padding: 20px; align-items: flex-start; }
+  .contact-icon-box { width: 42px; height: 42px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contact-card-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .05em; }
+  .contact-card-val { font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+  .form-panel { background: var(--blue); border-radius: 12px; padding: 40px; }
+  .form-title { font-family: var(--ff-head); font-size: 22px; color: var(--white); margin-bottom: 6px; }
+  .form-sub { font-size: 14px; color: rgba(255,255,255,.65); margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-label { display: block; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.7); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 7px; }
+  .form-input { width: 100%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 5px; padding: 12px 16px; font-size: 14px; color: var(--white); font-family: var(--ff-body); outline: none; transition: border-color .2s; }
+  .form-input::placeholder { color: rgba(255,255,255,.35); }
+  .form-input:focus { border-color: rgba(255,255,255,.6); }
+  textarea.form-input { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-submit { width: 100%; background: var(--gold); color: var(--white); border: none; border-radius: 5px; padding: 14px; font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-family: var(--ff-body); cursor: pointer; margin-top: 8px; transition: background .2s; }
+  .form-submit:hover { background: #A8832E; }
+  .map-placeholder { background: var(--blue-light); border: 1px solid var(--border); border-radius: 8px; height: 180px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; margin-top: 24px; }
+  .map-placeholder span { font-size: 28px; }
+  .map-placeholder p { font-size: 13px; color: var(--text-light); font-style: italic; }
+
+  footer { background: var(--blue); padding: 48px 32px 32px; }
+  .footer-inner { max-width: 1160px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .footer-brand-name { font-family: var(--ff-head); font-size: 22px; color: var(--white); font-weight: 700; margin-bottom: 8px; }
+  .footer-brand-desc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.65; max-width: 280px; }
+  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 16px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,.65); text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 12px; color: rgba(255,255,255,.35); flex-wrap: wrap; gap: 12px; }
+  .footer-brn { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 4px; padding: 4px 12px; font-size: 11px; color: rgba(255,255,255,.5); font-weight: 600; letter-spacing: .05em; }
+
+  @media (max-width: 768px) {
+    .wf-banner { font-size: 11px; padding: 8px 14px; line-height: 1.4; }
+    nav { top: 0; }
+    .nav-inner { padding: 0 18px; height: 58px; }
+    .logo-text { font-size: 17px; }
+    .logo-sub { display: none; }
+    .nav-links { gap: 0; }
+    .nav-links li:not(:last-child) { display: none; }
+    .nav-cta { padding: 8px 16px; font-size: 13px !important; }
+    section { padding: 56px 18px; }
+    #home { padding: 60px 18px 72px; }
+    .hero-content { grid-template-columns: 1fr; gap: 36px; }
+    .hero-h1 { font-size: 30px; }
+    .hero-p { font-size: 15px; }
+    .hero-glow { display: none; }
+    .hero-btns { flex-direction: column; gap: 10px; }
+    .btn-primary, .btn-outline { text-align: center; padding: 13px 20px; }
+    .hero-card { padding: 24px 20px; }
+    .trust-inner { gap: 14px; justify-content: flex-start; flex-wrap: wrap; padding: 0; }
+    .trust-item { font-size: 12px; }
+    .trust-bar { padding: 16px 18px; }
+    .section-h2 { font-size: 26px; }
+    .section-lead { font-size: 15px; }
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .about-img { height: 220px; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: 1fr; gap: 16px; }
+    .product-card { padding: 24px 20px; }
+    .partners { padding: 24px 18px; }
+    .partners-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .partners-list { gap: 10px; }
+    .creds-layout { grid-template-columns: 1fr; gap: 32px; }
+    .cred-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .cred-val { text-align: left; }
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-panel { padding: 28px 20px; border-radius: 10px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    footer { padding: 40px 18px 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wf-banner">
+  DESIGN CONCEPT — Apricus Co Ltd Corporate Website | Prepared by LANT3K IT Solutions | apricus-mu.com
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <div class="logo-mark">A</div>
+      <div>
+        <span class="logo-text">Apricus</span>
+        <span class="logo-sub">Import &amp; Distribution</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#products">Our Products</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow"><span></span>Established in Mauritius since 2020</div>
+      <h1 class="hero-h1">Your Trusted <em>Import Partner</em> in the Indian Ocean</h1>
+      <p class="hero-p">Apricus Co Ltd bridges global food producers and the Mauritian market. We specialise in sourcing premium quality poultry, edible oils, legumes, and essential food staples with full regulatory compliance and transparent credentials.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Our Import Range</a>
+        <a href="#credentials" class="btn-outline">Verify Our Credentials</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Company at a Glance</div>
+      <div class="cred-item"><div class="cred-icon">🏢</div><div><div class="cred-label">Registered Name</div><div class="cred-value">Apricus Co Ltd</div></div></div>
+      <div class="cred-item"><div class="cred-icon">📋</div><div><div class="cred-label">Business Registration</div><div class="cred-value">BRN C20174608</div></div></div>
+      <div class="cred-item"><div class="cred-icon">🔖</div><div><div class="cred-label">VAT Registration</div><div class="cred-value">27831543</div></div></div>
+      <div class="cred-item"><div class="cred-icon">📦</div><div><div class="cred-label">Import Licence</div><div class="cred-value">Approved — MRA</div></div></div>
+      <div class="cred-item"><div class="cred-icon">📍</div><div><div class="cred-label">Registered Address</div><div class="cred-value">Shivala Road, Isidore Rose</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-dot"></span>BRN <strong>C20174608</strong></div>
+    <div class="trust-item"><span class="trust-dot"></span>VAT Registered <strong>27831543</strong></div>
+    <div class="trust-item"><span class="trust-dot"></span>MRA Import Licence <strong>Approved</strong></div>
+    <div class="trust-item"><span class="trust-dot"></span>Incorporated in <strong>Mauritius</strong></div>
+    <div class="trust-item"><span class="trust-dot"></span>Operating since <strong>2020</strong></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">About Apricus</div>
+        <div class="divider"></div>
+        <h2 class="section-h2">A Premier Import and Distribution Specialist</h2>
+        <p class="section-lead">Founded in 2020, Apricus Co Ltd began as a distribution company and evolved into a specialist importer of essential food products for the Mauritian market. We bridge the gap between global producers and local buyers, combining international sourcing power with deep knowledge of the local market.</p>
+        <div class="value-list">
+          <div class="value-item"><div class="check">✓</div><span>Full compliance with all Mauritian trade, tax, and food import regulations</span></div>
+          <div class="value-item"><div class="check">✓</div><span>Strong supplier relationships with manufacturers in Turkey, Egypt, Asia, and the wider region</span></div>
+          <div class="value-item"><div class="check">✓</div><span>Serving hotels, restaurants, retailers, and wholesale buyers across Mauritius</span></div>
+          <div class="value-item"><div class="check">✓</div><span>Expanding into the SADC region with a vision to become a leading regional importer</span></div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-box"><div class="stat-num">2020</div><div class="stat-label">Year established</div></div>
+          <div class="stat-box"><div class="stat-num">SADC</div><div class="stat-label">Regional expansion target</div></div>
+          <div class="stat-box"><div class="stat-num">5+</div><div class="stat-label">Import categories</div></div>
+          <div class="stat-box"><div class="stat-num">MRA</div><div class="stat-label">Licenced importer</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="about-img">
+          <div class="about-img-icon">🏭</div>
+          <div class="about-img-label">Company or operations image</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-inner">
+    <div class="section-eyebrow">What We Import</div>
+    <div class="divider"></div>
+    <h2 class="section-h2">Quality Food Products for Mauritius</h2>
+    <p class="section-lead">We source directly from established manufacturers and exporters worldwide, ensuring competitive pricing, consistent quality, and a reliable supply chain into Mauritius.</p>
+    <div class="products-grid">
+      <div class="product-card"><span class="product-icon">🍗</span><div class="product-name">Poultry &amp; Meat</div><p class="product-desc">Frozen chicken, beef, mutton, and pre-cooked poultry ranges sourced from certified producers in Turkey, Brazil, and the wider region.</p><span class="product-tag">Core Category</span></div>
+      <div class="product-card"><span class="product-icon">🛢️</span><div class="product-name">Edible Oils</div><p class="product-desc">Refined cooking oils for household and commercial use, supplied in bulk and consumer-packaged formats to retailers and HORECA operators.</p><span class="product-tag">Core Category</span></div>
+      <div class="product-card"><span class="product-icon">🥬</span><div class="product-name">Fresh &amp; Frozen Vegetables</div><p class="product-desc">A range of fresh and frozen vegetables for retail, supermarkets, and food service operations across the island.</p><span class="product-tag">Core Category</span></div>
+      <div class="product-card"><span class="product-icon">🌾</span><div class="product-name">Flour &amp; Grains</div><p class="product-desc">Wheat flour, rice, pasta, and staple grains sourced from established producers to support the local food manufacturing and retail sectors.</p><span class="product-tag">Expanding Range</span></div>
+      <div class="product-card"><span class="product-icon">🫘</span><div class="product-name">Legumes &amp; Pulses</div><p class="product-desc">Lentils, beans, and other pulses in bulk and packaged formats. Essential staples for the Mauritian household and food industry.</p><span class="product-tag">Expanding Range</span></div>
+      <div class="product-card" style="background:var(--blue-pale); border-color: var(--blue-light);"><span class="product-icon">🌍</span><div class="product-name" style="color:var(--blue-mid);">Regional &amp; Institutional Supply</div><p class="product-desc">Apricus is positioned to serve institutional buyers and is actively pursuing supply opportunities across the SADC region. Enquire for wholesale terms.</p><span class="product-tag">Pipeline</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="partners">
+  <div class="partners-inner">
+    <div class="partners-label">Sourcing from</div>
+    <div class="partners-list">
+      <span class="partner-pill">🇹🇷 Turkey</span>
+      <span class="partner-pill">🇪🇬 Egypt</span>
+      <span class="partner-pill">🇧🇷 Brazil</span>
+      <span class="partner-pill">🌏 Asia</span>
+      <span class="partner-pill">🌍 SADC Region</span>
+    </div>
+  </div>
+</div>
+
+<section id="credentials">
+  <div class="section-inner">
+    <div class="section-eyebrow">Verification &amp; Compliance</div>
+    <div class="divider"></div>
+    <h2 class="section-h2">Verify Apricus with Confidence</h2>
+    <p class="section-lead">We publish our registration and compliance details in full so that international suppliers and procurement partners can verify our legitimacy quickly and without friction.</p>
+    <div class="creds-layout">
+      <div>
+        <div class="creds-panel">
+          <div class="creds-header">
+            <div class="creds-header-title">Official Company Registration</div>
+            <div class="verified-badge">✓ Verified</div>
+          </div>
+          <div class="creds-body">
+            <div class="cred-row"><div class="cred-key">Registered Company Name</div><div class="cred-val">Apricus Co Ltd</div></div>
+            <div class="cred-row"><div class="cred-key">Business Registration Number</div><div class="cred-val">C20174608<small>Mauritius Registrar of Companies</small></div></div>
+            <div class="cred-row"><div class="cred-key">VAT Registration Number</div><div class="cred-val">27831543<small>Mauritius Revenue Authority</small></div></div>
+            <div class="cred-row"><div class="cred-key">Import Licence</div><div class="cred-val"><span class="cred-ok">✓ Active</span><small>Approved by Mauritius Revenue Authority</small></div></div>
+            <div class="cred-row"><div class="cred-key">Year of Incorporation</div><div class="cred-val">2020</div></div>
+            <div class="cred-row"><div class="cred-key">Registered Address</div><div class="cred-val">Shivala Road, Isidore Rose<small>Republic of Mauritius</small></div></div>
+            <div class="cred-row"><div class="cred-key">Bank &amp; Trade References</div><div class="cred-val">Available on request</div></div>
+          </div>
+        </div>
+        <div style="margin-top:16px; padding:16px 20px; background:var(--gold-light); border:1px solid #E0C878; border-radius:8px; font-size:13px; color: #5A3E00; line-height:1.6;">
+          <strong>Supplier enquiries:</strong> Bank references and certified copies of all registration documents are available on request. Contact us directly to initiate a supplier verification process.
+        </div>
+      </div>
+      <div class="why-verify">
+        <h3 style="font-family:var(--ff-head); font-size:20px; color:var(--blue); margin-bottom:8px;">Why suppliers trust Apricus</h3>
+        <div class="why-item"><div class="why-num">1</div><div><div class="why-title">Full regulatory compliance</div><div class="why-text">Apricus operates in full compliance with Mauritian trade, tax, and food import regulations. All licences are current and valid.</div></div></div>
+        <div class="why-item"><div class="why-num">2</div><div><div class="why-title">Transparent credentials</div><div class="why-text">We publish our BRN, VAT number, and import licence status openly so you can verify us through the Mauritius official registries without needing to ask.</div></div></div>
+        <div class="why-item"><div class="why-num">3</div><div><div class="why-title">Established buyer relationships</div><div class="why-text">We serve hotels, restaurants, retailers, and wholesale distributors across Mauritius with a track record of reliable order fulfilment.</div></div></div>
+        <div class="why-item"><div class="why-num">4</div><div><div class="why-title">Regional growth trajectory</div><div class="why-text">We are actively expanding into the SADC region and seeking long-term supply partnerships with manufacturers who want a serious Mauritius-based importer.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Get in Touch</div>
+    <div class="divider"></div>
+    <h2 class="section-h2">Contact Apricus Co Ltd</h2>
+    <p class="section-lead">We welcome enquiries from international suppliers, manufacturers, and exporters. Fill in the form or reach us directly using the details below.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card"><div class="contact-icon-box">✉️</div><div><div class="contact-card-title">Email</div><div class="contact-card-val">[To be confirmed]<br>Business enquiries welcome</div></div></div>
+        <div class="contact-card"><div class="contact-icon-box">📞</div><div><div class="contact-card-title">Phone / WhatsApp</div><div class="contact-card-val">[To be confirmed]<br>Monday to Friday, 9:00 AM to 5:00 PM</div></div></div>
+        <div class="contact-card"><div class="contact-icon-box">📍</div><div><div class="contact-card-title">Registered Address</div><div class="contact-card-val">Shivala Road, Isidore Rose<br>Republic of Mauritius</div></div></div>
+        <div class="map-placeholder"><span>🗺️</span><p>Google Maps — Shivala Road, Isidore Rose, Mauritius</p></div>
+      </div>
+      <div class="form-panel">
+        <div class="form-title">Send an Enquiry</div>
+        <div class="form-sub">For supplier verification requests, wholesale enquiries, or general questions.</div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="First name"></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Last name"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Company / Organisation</label><input class="form-input" type="text" placeholder="Your company name"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="your@company.com"></div>
+        <div class="form-group"><label class="form-label">Enquiry Type</label><input class="form-input" type="text" placeholder="e.g. Supplier verification / Wholesale pricing"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="Tell us what you are looking for..."></textarea></div>
+        <button class="form-submit">Send Enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Apricus Co Ltd</div>
+        <p class="footer-brand-desc">A premier import and distribution specialist in Mauritius, bridging global producers and the local food and hospitality sectors since 2020.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Our Products</a></li>
+          <li><a href="#credentials">Credentials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Compliance</div>
+        <ul class="footer-links">
+          <li><a href="#">BRN C20174608</a></li>
+          <li><a href="#">VAT 27831543</a></li>
+          <li><a href="#">MRA Import Licence</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Apricus Co Ltd. All rights reserved. Registered in Mauritius.</span>
+      <span class="footer-brn">BRN C20174608</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
