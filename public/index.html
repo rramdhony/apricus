@@ -966,11 +966,14 @@
 <!-- Twemoji — renders flag emoji consistently on Windows desktop -->
 <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script>
-  twemoji.parse(document.body, {
-    folder: 'svg',
-    ext: '.svg',
-    attributes: function () { return { style: 'height:1.1em;width:1.1em;vertical-align:-0.15em;' }; }
-  });
+  if (typeof twemoji !== 'undefined') {
+    twemoji.parse(document.body, {
+      base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@v14.0.2/assets/',
+      folder: 'svg',
+      ext: '.svg',
+      attributes: function () { return { style: 'height:1.1em;width:1.1em;vertical-align:-0.15em;' }; }
+    });
+  }
 </script>
 
 </body>
